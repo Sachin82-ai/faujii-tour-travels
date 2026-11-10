@@ -1,0 +1,26 @@
+{% extends "admin_base.html" %}
+{% block body %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h4 m-0">{{ s.title }}</h1>
+  <a class="btn btn-gold" href="{{ url_for('admin.edit', kind=kind) }}">+ Add new</a>
+</div>
+<div class="table-responsive"><table class="table table-white bg-white align-middle">
+  <thead><tr>{% if s.image %}<th>Photo</th>{% endif %}<th>Name</th><th>Status</th><th class="text-end">Actions</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+  {% set nm = r[s.name_key] %}
+  <tr>
+    {% if s.image %}<td><img class="thumb" src="{{ url_for('static', filename='images/' ~ s.folder ~ '/' ~ (r.id if kind == 'gallery' else r.id ~ '.jpg')) }}" alt="" onerror="this.style.visibility='hidden'"></td>{% endif %}
+    <td>{{ nm[0] if nm else r.id }}</td>
+    <td>{% if r.published %}<span class="badge text-bg-success">Published</span>{% else %}<span class="badge text-bg-secondary">Hidden</span>{% endif %}</td>
+    <td class="text-end text-nowrap">
+      <a class="btn btn-sm btn-outline-primary" href="{{ url_for('admin.edit', kind=kind, id_=r.id) }}">Edit</a>
+      <form class="d-inline" method="post" action="{{ url_for('admin.toggle', kind=kind, id_=r.id) }}"><input type="hidden" name="csrf" value="{{ csrf() }}">
+        <button class="btn btn-sm btn-outline-secondary">{{ 'Hide' if r.published else 'Publish' }}</button></form>
+      <form class="d-inline" method="post" action="{{ url_for('admin.delete', kind=kind, id_=r.id) }}" onsubmit="return confirm('Delete this item?')"><input type="hidden" name="csrf" value="{{ csrf() }}">
+        <button class="btn btn-sm btn-outline-danger">Delete</button></form>
+    </td>
+  </tr>
+  {% else %}<tr><td colspan="4" class="text-center text-muted py-4">Nothing here yet.</td></tr>{% endfor %}
+  </tbody></table></div>
+{% endblock %}

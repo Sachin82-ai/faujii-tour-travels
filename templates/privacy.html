@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% from "_macros.html" import page_hero with context %}
+{% block content %}
+{{ page_hero(("Privacy Policy", "गोपनीयता नीति"), ("How we treat your information", "हम आपकी जानकारी कैसे संभालते हैं")) }}
+<section class="section"><div class="container narrow mx-auto">
+  <p><b>DRAFT:</b> review before launch.</p>
+  <p>{{ t(("This website has no forms, registration or customer data entry and does not collect personal information. When you call or message us on WhatsApp, that conversation is governed by your phone provider and WhatsApp's own policies. If analytics is added later, this page will be updated.",
+    "इस वेबसाइट पर कोई फ़ॉर्म, रजिस्ट्रेशन या डेटा-एंट्री नहीं है और यह व्यक्तिगत जानकारी एकत्र नहीं करती। कॉल या WhatsApp संदेश आपके फ़ोन प्रदाता और WhatsApp की नीतियों के अधीन होते हैं। भविष्य में एनालिटिक्स जोड़ने पर यह पेज अपडेट होगा।")) }}</p>
+  {% if config.GA_ID %}<p>{{ t(("We use Google Analytics (with IP anonymisation) to count visits and see which pages are popular. It does not identify you personally.", "हम गूगल एनालिटिक्स (आईपी अनाम करके) से विज़िट और लोकप्रिय पेज गिनते हैं। यह आपकी व्यक्तिगत पहचान नहीं करता।")) }}</p>{% endif %}
+</div></section>
+{% endblock %}

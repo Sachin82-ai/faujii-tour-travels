@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "_macros.html" import page_hero with context %}
+{% block content %}
+{{ page_hero(("Contact Us", "संपर्क करें"), ("Call or message us directly. No forms needed.", "सीधे कॉल या संदेश करें। किसी फ़ॉर्म की ज़रूरत नहीं।")) }}
+<section class="section"><div class="container"><div class="row g-4">
+  <div class="col-lg-5 reveal"><div class="card-x p-4 h-100">
+    <h2 class="h4">{{ t(B.name) }}</h2><span class="gold-rule left"></span>
+    <ul class="contact-list">
+      <li><i class="fa-solid fa-user"></i> {{ t(B.owner) }}</li>
+      <li><i class="fa-solid fa-phone"></i> <a href="{{ tel }}">{{ B.phone_display }}</a></li>
+      <li><i class="fa-solid fa-location-dot"></i> <a href="{{ maps_link }}" target="_blank" rel="noopener">{{ t(B.address) }}</a></li>
+      <li><i class="fa-regular fa-clock"></i> {{ t(B.timings) }}</li>
+    </ul>
+    <div class="d-grid gap-2">
+      <a class="btn btn-gold" href="{{ tel }}"><i class="fa-solid fa-phone"></i> {{ t(("Click to Call", "कॉल करें")) }}</a>
+      <a class="btn btn-wa" href="{{ wa_link() }}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <a class="btn btn-navy" href="{{ maps_link }}" target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right"></i> {{ t(("Get Directions", "रास्ता देखें")) }}</a>
+    </div>
+  </div></div>
+  <div class="col-lg-7 reveal"><div class="map-wrap">
+    <iframe title="Faujii Tour & Travels location" src="{{ maps_embed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div></div>
+</div></div></section>
+{% endblock %}

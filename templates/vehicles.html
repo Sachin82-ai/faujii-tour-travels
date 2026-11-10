@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "_macros.html" import cta, page_hero, photo with context %}
+{% block content %}
+{{ page_hero(("Our Vehicles", "हमारे वाहन"), ("AC and Non-AC cars for every journey", "हर यात्रा के लिए एसी और नॉन-एसी कारें")) }}
+<section class="section"><div class="container"><div class="row g-4 justify-content-center">
+  {% for v in vehicles %}
+  <div class="col-md-6 col-lg-5 reveal"><article class="card-x h-100">
+    {{ photo('vehicles', v, en(v.name)) }}
+    <div class="p-4"><h3 class="text-center">{{ t(v.name) }}</h3>
+    <ul class="meta">
+      <li><i class="fa-solid fa-snowflake"></i> {{ t(v.ac) }}</li>
+      <li><i class="fa-solid fa-users"></i> {{ t(("Seats / luggage: ", "सीट / सामान: ")) }}{{ t(v.seats) }}</li>
+      <li><i class="fa-solid fa-route"></i> {{ t(v.use) }}</li>
+    </ul>
+    <div class="d-flex gap-2"><a class="btn btn-gold btn-sm flex-fill" href="{{ tel }}">{{ t(("Check availability", "उपलब्धता पूछें")) }}</a></div>
+  </div></article></div>
+  {% endfor %}
+</div>
+<p class="text-center mt-4 text-muted">{{ t(("Exact models, capacity and photos are shared on request. Please call to confirm availability.", "सटीक मॉडल, क्षमता और फ़ोटो माँगने पर उपलब्ध। उपलब्धता के लिए कॉल करें।")) }}</p>
+</div></section>
+{% endblock %}

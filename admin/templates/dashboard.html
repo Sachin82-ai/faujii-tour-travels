@@ -1,0 +1,12 @@
+{% extends "admin_base.html" %}
+{% block body %}
+<h1 class="h4 mb-3">Manage website content</h1>
+<div class="row g-3">
+  {% for k, s in SCHEMA.items() %}
+  <div class="col-sm-6 col-lg-4"><a class="card card-body text-decoration-none h-100" href="{{ url_for('admin.listing', kind=k) }}">
+    <h2 class="h5">{{ s.title }}</h2><span class="text-muted">{{ counts[k] }} item(s)</span></a></div>
+  {% endfor %}
+  <div class="col-sm-6 col-lg-4"><a class="card card-body text-decoration-none h-100" href="{{ url_for('admin.settings') }}">
+    <h2 class="h5">Contact details</h2><span class="text-muted">Phone, WhatsApp, address, timings, social links</span></a></div>
+</div>
+{% endblock %}

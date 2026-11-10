@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "_macros.html" import cta, heading, page_hero with context %}
+{% block content %}
+{{ page_hero(("About Us", "हमारे बारे में"), ("A trusted travel service from the heart of Braj", "ब्रज के हृदय से एक भरोसेमंद यात्रा सेवा")) }}
+<section class="section"><div class="container">
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-7 reveal">
+      <h2>{{ t(("Faujii Tour & Travels", "फौजी टूर एंड ट्रैवल्स")) }}</h2><span class="gold-rule left"></span>
+      <p>{{ t(("We are a Mathura-based tour, travels and taxi service at Girdharpur, Govardhan Chauraha. Our main service is Braj Darshan, along with local sightseeing and outstation tours in AC and Non-AC cars.",
+        "हम गिरधरपुर, गोवर्धन चौराहा, मथुरा में स्थित टूर, ट्रैवल्स और टैक्सी सेवा हैं। हमारी मुख्य सेवा ब्रज दर्शन है, साथ ही एसी और नॉन-एसी कारों में लोकल घुमाई और आउटस्टेशन टूर।")) }}</p>
+      <p>{{ t(("Being local, we know Mathura, Vrindavan and the villages of Braj well: the routes, the temple timings and the best way to plan a day.",
+        "स्थानीय होने के कारण हम मथुरा, वृंदावन और ब्रज के गाँवों को अच्छी तरह जानते हैं: रास्ते, मंदिरों के समय और दिन की सही योजना।")) }}</p>
+    </div>
+    <div class="col-lg-5 reveal"><div class="owner-card">
+      <i class="fa-solid fa-medal"></i>
+      <h3>{{ t(B.owner) }}</h3>
+      <p>{{ t(("Owner & contact person", "संचालक एवं संपर्क व्यक्ति")) }}</p>
+      <a href="{{ tel }}" class="fw-semibold">{{ B.phone_display }}</a>
+    </div></div>
+  </div>
+</div></section>
+<section class="section alt"><div class="container">
+  <div class="row g-4">
+    <div class="col-md-6 reveal"><div class="why"><i class="fa-solid fa-bullseye"></i><h3>{{ t(("Our Mission", "हमारा लक्ष्य")) }}</h3>
+      <p>{{ t(("To give every traveller a safe, comfortable and respectful journey through Braj and beyond.", "हर यात्री को ब्रज और उसके आगे सुरक्षित, आरामदायक और सम्मानजनक यात्रा देना।")) }}</p></div></div>
+    <div class="col-md-6 reveal"><div class="why"><i class="fa-solid fa-eye"></i><h3>{{ t(("Our Vision", "हमारी दृष्टि")) }}</h3>
+      <p>{{ t(("To be the most trusted travel partner for pilgrims and tourists visiting Mathura.", "मथुरा आने वाले तीर्थयात्रियों और पर्यटकों का सबसे भरोसेमंद यात्रा साथी बनना।")) }}</p></div></div>
+    <div class="col-md-6 reveal"><div class="why"><i class="fa-solid fa-shield-heart"></i><h3>{{ t(("Safety & Comfort", "सुरक्षा और आराम")) }}</h3>
+      <p>{{ t(("Your safety and comfort come first on every trip.", "हर यात्रा में आपकी सुरक्षा और आराम पहले।")) }}</p></div></div>
+    <div class="col-md-6 reveal"><div class="why"><i class="fa-solid fa-location-crosshairs"></i><h3>{{ t(("Local Knowledge", "स्थानीय जानकारी")) }}</h3>
+      <p>{{ t(("Deep knowledge of Mathura, Vrindavan and Braj.", "मथुरा, वृंदावन और ब्रज की गहरी जानकारी।")) }}</p></div></div>
+  </div>
+</div></section>
+<section class="cta-band"><div class="container text-center"><h2>{{ t(("Talk to us", "हमसे बात करें")) }}</h2>{{ cta() }}</div></section>
+{% endblock %}

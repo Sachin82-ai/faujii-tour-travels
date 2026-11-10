@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% from "_macros.html" import cta, page_hero with context %}
+{% block content %}
+{{ page_hero(("Our Services", "हमारी सेवाएँ"), ("Reliable travel for every occasion", "हर अवसर के लिए भरोसेमंद यात्रा")) }}
+<section class="section"><div class="container"><div class="row g-4">
+  {% for icon, name, text in services %}
+  <div class="col-md-6 col-lg-4 reveal"><article class="card-x h-100 p-4 text-center">
+    <i class="fa-solid {{ icon }} big-icon"></i><h3>{{ t(name) }}</h3><p>{{ t(text) }}</p>
+    <a class="btn btn-navy btn-sm" href="{{ wa_link('Hello, I want to enquire about: ' ~ en(name)) }}" target="_blank" rel="noopener">{{ t(("Enquire", "पूछताछ")) }}</a>
+  </article></div>
+  {% endfor %}
+</div></div></section>
+<section class="cta-band"><div class="container text-center"><h2>{{ t(("Need a vehicle?", "वाहन चाहिए?")) }}</h2>{{ cta() }}</div></section>
+{% endblock %}

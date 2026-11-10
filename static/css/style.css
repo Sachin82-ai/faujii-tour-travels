@@ -1,0 +1,92 @@
+:root{--navy:#101B50;--gold:#D5A344;--saffron:#E96C19;--off:#F7F7FA;--ink:#222a45}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins','Noto Sans Devanagari',sans-serif;color:var(--ink);background:#fff}
+h1,h2,h3,h4{font-family:'Playfair Display','Noto Sans Devanagari',serif;color:var(--navy)}
+a{color:var(--navy)}
+
+/* language switch */
+html[data-lang="en"] .l-hi,html[data-lang="hi"] .l-en{display:none}
+
+/* nav */
+.site-nav{background:var(--navy);border-bottom:3px solid var(--gold);padding:.4rem 0}
+.navbar-brand{display:flex;align-items:center;gap:.6rem;color:#fff}
+.logo-mark{width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font:700 1.4rem 'Playfair Display',serif}
+.logo-text{display:flex;flex-direction:column;line-height:1;color:#fff}
+.logo-text b{font:700 1.15rem 'Playfair Display',serif;letter-spacing:.12em;color:var(--gold)}
+.logo-text small{font-size:.6rem;letter-spacing:.2em}
+.site-nav .nav-link{color:#e8ebf7;font-size:.9rem;padding:.5rem .7rem}
+.site-nav .nav-link:hover,.site-nav .nav-link.active{color:var(--gold)}
+.navbar-toggler{color:#fff;border:1px solid var(--gold)}
+.lang-btn{background:transparent;border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:.2rem .8rem;font-size:.85rem;margin:.4rem 0}
+.lang-btn:hover{background:var(--gold);color:var(--navy)}
+
+/* hero */
+.hero{background:linear-gradient(135deg,rgba(16,27,80,.92),rgba(16,27,80,.6)),url('../images/hero/hero.jpg') center/cover,var(--navy);
+  color:#fff;padding:7rem 0 6rem}
+.hero h1{color:#fff;font-size:clamp(2rem,5vw,3.6rem);max-width:760px}
+.hero .lead{max-width:640px;opacity:.92;margin:1rem 0 1.8rem}
+.eyebrow{color:var(--gold);letter-spacing:.3em;font-weight:600;font-size:.85rem}
+.page-hero{background:linear-gradient(135deg,var(--navy),#1b2b78);color:#fff;text-align:center;padding:3.5rem 0}
+.page-hero h1{color:#fff}
+.page-hero p{opacity:.85;margin:0}
+
+/* sections */
+.section{padding:4rem 0}.section.alt{background:var(--off)}
+.sec-head{text-align:center;margin-bottom:2.2rem}
+.sec-head p{color:#666}
+.gold-rule{display:block;width:70px;height:3px;background:var(--gold);margin:.7rem auto 1rem;border-radius:2px}
+.gold-rule.left{margin-left:0}
+.narrow{max-width:760px}
+
+/* buttons */
+.btn{border-radius:30px;font-weight:500;padding:.55rem 1.4rem}
+.btn-gold{background:var(--gold);color:var(--navy);border:0}.btn-gold:hover{background:#c4922f;color:var(--navy)}
+.btn-wa{background:var(--saffron);color:#fff;border:0}.btn-wa:hover{background:#cf5a0e;color:#fff}
+.btn-navy{background:var(--navy);color:#fff;border:0}.btn-navy:hover{background:#1b2b78;color:#fff}
+.btn-sm{padding:.35rem 1rem}
+
+/* cards */
+.card-x{background:#fff;border:1px solid #e8e8ee;border-top:3px solid var(--gold);border-radius:16px;overflow:hidden;
+  box-shadow:0 4px 18px rgba(16,27,80,.06);transition:transform .25s,box-shadow .25s}
+.card-x:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(16,27,80,.14)}
+.card-x h3{font-size:1.25rem}
+.tag{color:var(--saffron);font-weight:500;font-size:.9rem;margin-bottom:.4rem}
+.ph{position:relative;height:190px;background:linear-gradient(135deg,var(--c),#000 160%);display:grid;place-items:center;overflow:hidden}
+.ph i{font-size:3.2rem;color:rgba(255,255,255,.85)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.meta{list-style:none;padding:0;margin:.5rem 0;font-size:.88rem}
+.meta li{margin-bottom:.3rem}.meta i{color:var(--gold);width:1.2rem}
+.sig{font-size:.85rem;color:#666}.sig i{color:var(--saffron)}
+.big-icon{font-size:2.6rem;color:var(--gold);margin-bottom:.6rem}
+.price{font-weight:600;color:var(--saffron);font-size:1.1rem}
+.why{text-align:center;padding:1rem}
+.why i{font-size:2rem;color:var(--gold);margin-bottom:.6rem}
+.chip{background:#fff;border:1px solid var(--gold);color:var(--navy);border-radius:30px;padding:.35rem 1rem;font-size:.9rem;display:inline-block}
+button.chip{cursor:pointer}.chip.active,button.chip:hover{background:var(--navy);color:var(--gold)}
+.owner-card{background:var(--navy);color:#fff;border-radius:16px;padding:2rem;text-align:center;border-bottom:4px solid var(--gold)}
+.owner-card h3{color:var(--gold)}.owner-card i{font-size:2.5rem;color:var(--gold)}.owner-card a{color:#fff}
+.timeline{padding-left:1.2rem}.timeline li{margin-bottom:.7rem}
+.contact-list{list-style:none;padding:0}.contact-list li{margin-bottom:.8rem}.contact-list i{color:var(--gold);width:1.5rem}
+.map-wrap{height:100%;min-height:340px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ee}
+.map-wrap iframe{width:100%;height:100%;min-height:340px;border:0}
+.cta-band{background:var(--navy);color:#fff;padding:3.5rem 0;border-top:3px solid var(--gold)}
+.cta-band h2{color:var(--gold)}.cta-band .btn{margin:.3rem}
+.empty{padding:3rem;color:#888}.empty i{font-size:3rem}
+.accordion-button:not(.collapsed){background:var(--off);color:var(--navy)}
+
+/* gallery */
+.g-img{width:100%;height:200px;object-fit:cover;border-radius:12px;cursor:zoom-in}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;place-items:center;z-index:2000;cursor:zoom-out}
+.lightbox.open{display:grid}.lightbox img{max-width:92vw;max-height:90vh;border-radius:8px}
+
+/* footer + floating */
+.site-footer{background:var(--navy);color:#cfd4ea;padding:3rem 0 1rem;border-top:4px solid var(--gold)}
+.site-footer h4,.site-footer h5{color:var(--gold)}
+.site-footer a{color:#cfd4ea;text-decoration:none}.site-footer a:hover{color:var(--gold)}
+.site-footer li{margin-bottom:.3rem}
+.soc{display:inline-grid;place-items:center;width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;margin-right:.4rem}
+.copy{text-align:center;border-top:1px solid rgba(255,255,255,.15);margin:2rem 0 0;padding-top:1rem;font-size:.85rem}
+.float-btns{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;z-index:1500}
+.fb{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.5rem;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.fb-wa{background:var(--saffron)}.fb-call{background:var(--navy);border:2px solid var(--gold)}
+.fb:hover{color:#fff;transform:scale(1.08)}

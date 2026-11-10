@@ -1,0 +1,43 @@
+{% macro photo(folder, item, alt) -%}
+<div class="ph" style="--c:{{ item.color }}">
+  <i class="fa-solid {{ item.icon }}"></i>
+  <img src="{{ url_for('static', filename='images/' ~ folder ~ '/' ~ item.id ~ '.jpg') }}" alt="{{ alt }}" loading="lazy" onerror="this.remove()">
+</div>
+{%- endmacro %}
+
+{% macro cta(msg="") -%}
+<a class="btn btn-gold" href="{{ tel }}"><i class="fa-solid fa-phone"></i> {{ t(("Call Now", "कॉल करें")) }}</a>
+<a class="btn btn-wa" href="{{ wa_link(msg) if msg else wa_link() }}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+{%- endmacro %}
+
+{% macro heading(title, sub=None) -%}
+<div class="sec-head reveal">
+  <h2>{{ t(title) }}</h2><span class="gold-rule"></span>
+  {% if sub %}<p>{{ t(sub) }}</p>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro dest_card(d) -%}
+<div class="col-md-6 col-lg-4 reveal">
+  <article class="card-x h-100">
+    {{ photo('destinations', d, en(d.name) ~ ' tour') }}
+    <div class="p-3">
+      <h3>{{ t(d.name) }}</h3>
+      <p class="tag">{{ t(d.tag) }}</p>
+      <p>{{ t(d.about) }}</p>
+      <ul class="meta">
+        <li><i class="fa-solid fa-location-dot"></i> {{ t(d.location) }}</li>
+        <li><i class="fa-regular fa-clock"></i> {{ t(("Suggested: ", "सुझाव: ")) }}{{ t(d.duration) }}</li>
+        <li><i class="fa-solid fa-star"></i> {{ t(d.nearby) }}</li>
+      </ul>
+      <p class="sig"><i class="fa-solid fa-hands-praying"></i> {{ t(d.sig) }}</p>
+    </div>
+  </article>
+</div>
+{%- endmacro %}
+
+{% macro page_hero(title, sub) -%}
+<section class="page-hero"><div class="container">
+  <h1>{{ t(title) }}</h1><span class="gold-rule"></span><p>{{ t(sub) }}</p>
+</div></section>
+{%- endmacro %}

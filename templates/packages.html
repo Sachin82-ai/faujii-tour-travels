@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "_macros.html" import photo, page_hero with context %}
+{% block content %}
+{{ page_hero(("Tour Packages", "टूर पैकेज"), ("Choose a package or ask for a custom trip", "पैकेज चुनें या अपनी पसंद की यात्रा बनवाएँ")) }}
+<section class="section"><div class="container"><div class="row g-4">
+  {% for p in packages %}
+  <div class="col-md-6 col-lg-4 reveal"><article class="card-x h-100 d-flex flex-column">
+    {{ photo('packages', p, en(p.name)) }}
+    <div class="p-3 d-flex flex-column flex-grow-1">
+      <h3>{{ t(p.name) }}</h3>
+      <ul class="meta">
+        <li><i class="fa-solid fa-map-pin"></i> {{ t(p.places) }}</li>
+        <li><i class="fa-regular fa-clock"></i> {{ t(p.duration) }}</li>
+        <li><i class="fa-solid fa-car"></i> {{ t(pveh) }}</li>
+      </ul>
+      <p class="mb-1"><b>{{ t(("Included:", "शामिल:")) }}</b> {% for i in inc %}{{ t(i) }}{{ ', ' if not loop.last }}{% endfor %}</p>
+      <p><b>{{ t(("Not included:", "शामिल नहीं:")) }}</b> {% for i in exc %}{{ t(i) }}{{ ', ' if not loop.last }}{% endfor %}</p>
+      <p class="price mt-auto">{% if p.price %}{{ t(p.price) }}{% else %}{{ t(("Contact for Price", "कीमत के लिए संपर्क करें")) }}{% endif %}</p>
+      <div class="d-flex gap-2">
+        <a class="btn btn-gold btn-sm flex-fill" href="{{ tel }}"><i class="fa-solid fa-phone"></i> {{ t(("Call", "कॉल")) }}</a>
+        <a class="btn btn-wa btn-sm flex-fill" href="{{ wa_link('Hello, I want to enquire about: ' ~ en(p.name)) }}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </article></div>
+  {% endfor %}
+</div></div></section>
+{% endblock %}

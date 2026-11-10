@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "_macros.html" import page_hero with context %}
+{% block content %}
+{{ page_hero(("Gallery", "गैलरी"), ("Moments from our journeys", "हमारी यात्राओं के पल")) }}
+<section class="section"><div class="container">
+  <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+    <button class="chip filter active" data-filter="all">{{ t(("All", "सभी")) }}</button>
+    {% for key, label in cats %}<button class="chip filter" data-filter="{{ key }}">{{ t(label) }}</button>{% endfor %}
+  </div>
+  {% if items %}
+  <div class="row g-3">
+    {% for g in items %}
+    <div class="col-6 col-md-4 col-lg-3 g-item" data-cat="{{ g.cat }}">
+      <img class="g-img" src="{{ url_for('static', filename='images/gallery/' ~ g.file) }}" alt="{{ en(g.caption) }}" loading="lazy">
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty text-center">
+    <i class="fa-regular fa-images"></i>
+    <p>{{ t(("Photos coming soon.", "फ़ोटो जल्द ही उपलब्ध होंगी।")) }}</p>
+  </div>
+  {% endif %}
+</div></section>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+{% endblock %}

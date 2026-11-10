@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "_macros.html" import page_hero with context %}
+{% block content %}
+{{ page_hero(("Terms & Conditions", "नियम व शर्तें"), ("Please read before booking", "बुकिंग से पहले पढ़ें")) }}
+<section class="section"><div class="container narrow mx-auto">
+  <p><b>DRAFT:</b> replace with the business's final policy before launch.</p>
+  <ul>
+    <li>{{ t(("Rates, payment and cancellation terms are confirmed directly by phone or WhatsApp before the trip.", "दर, भुगतान और रद्दीकरण की शर्तें यात्रा से पहले फ़ोन या WhatsApp पर तय की जाती हैं।")) }}</li>
+    <li>{{ t(("Entry tickets, meals, tolls and parking are not included unless stated.", "प्रवेश टिकट, भोजन, टोल और पार्किंग तब तक शामिल नहीं जब तक बताया न जाए।")) }}</li>
+    <li>{{ t(("Itineraries may change due to traffic, weather or temple timings.", "यातायात, मौसम या मंदिर समय के कारण कार्यक्रम बदल सकता है।")) }}</li>
+  </ul>
+</div></section>
+{% endblock %}

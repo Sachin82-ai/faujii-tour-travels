@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "_macros.html" import cta, page_hero with context %}
+{% block content %}
+{{ page_hero(("Travel Guide", "यात्रा गाइड"), ("Tips to plan your visit to Braj", "ब्रज यात्रा की योजना के लिए सुझाव")) }}
+<section class="section"><div class="container"><div class="row g-4">
+  {% for g in guides %}
+  <div class="col-md-6 reveal"><article class="card-x h-100 p-4" id="{{ g.id }}">
+    <h3>{{ t(g.title) }}</h3><span class="gold-rule left"></span><p>{{ t(g.body) }}</p>
+  </article></div>
+  {% endfor %}
+</div></div></section>
+<section class="cta-band"><div class="container text-center"><h2>{{ t(("Need help planning?", "योजना बनाने में मदद चाहिए?")) }}</h2>{{ cta() }}</div></section>
+{% endblock %}

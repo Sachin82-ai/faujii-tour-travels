@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% from "_macros.html" import cta, page_hero, dest_card with context %}
+{% block content %}
+{{ page_hero(("Destinations", "पर्यटन स्थल"), ("Mathura, Braj, Agra and beyond", "मथुरा, ब्रज, आगरा और उससे आगे")) }}
+<section class="section"><div class="container">
+  <div class="row g-4">{% for d in dests %}{{ dest_card(d) }}{% endfor %}</div>
+  <p class="text-center mt-4">{{ t(("Other outstation destinations are available on request.", "अन्य आउटस्टेशन गंतव्य माँगने पर उपलब्ध।")) }}</p>
+</div></section>
+<section class="cta-band"><div class="container text-center"><h2>{{ t(("Where would you like to go?", "आप कहाँ जाना चाहेंगे?")) }}</h2>{{ cta() }}</div></section>
+{% endblock %}

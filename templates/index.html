@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% from "_macros.html" import photo, cta, heading, dest_card with context %}
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">FAUJII TOUR &amp; TRAVELS</p>
+    <h1>{{ t(("Discover Braj. Experience the Journey.", "ब्रज की खोज करें। यात्रा का अनुभव लें।")) }}</h1>
+    <p class="lead">{{ t(("Explore the spiritual beauty of Braj, experience comfortable journeys, and discover India's most iconic destinations with us.",
+      "ब्रज की आध्यात्मिक सुंदरता का अनुभव करें, आरामदायक यात्रा करें और भारत के प्रसिद्ध स्थलों की खोज हमारे साथ करें।")) }}</p>
+    <div class="d-flex flex-wrap gap-2">
+      <a class="btn btn-gold btn-lg" href="/packages">{{ t(("Explore Tour Packages", "टूर पैकेज देखें")) }}</a>
+      <a class="btn btn-outline-light btn-lg" href="/contact">{{ t(("Contact Us", "संपर्क करें")) }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container text-center reveal">
+    <h2>{{ t(("Your Trusted Travel Partner in Mathura & Beyond", "मथुरा और उसके आगे आपका भरोसेमंद यात्रा साथी")) }}</h2>
+    <span class="gold-rule"></span>
+    <p class="mx-auto narrow">{{ t(("Faujii Tour & Travels, run by Ex/Havaldar Upender Singh, offers Braj Darshan, local sightseeing and outstation tours in AC and Non-AC cars from Mathura.",
+      "पूर्व हवलदार उपेंद्र सिंह द्वारा संचालित फौजी टूर एंड ट्रैवल्स मथुरा से एसी और नॉन-एसी कारों में ब्रज दर्शन, लोकल घुमाई और आउटस्टेशन टूर उपलब्ध कराता है।")) }}</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    {{ heading(("Explore Our Popular Tours", "हमारे लोकप्रिय टूर")) }}
+    <div class="row g-4">
+      {% for p in packages %}
+      <div class="col-md-6 col-lg-3 reveal">
+        <article class="card-x h-100 text-center">
+          {{ photo('packages', p, en(p.name)) }}
+          <div class="p-3">
+            <h3>{{ t(p.name) }}</h3>
+            <p>{{ t(p.places) }}</p>
+            <a class="btn btn-navy btn-sm" href="/packages">{{ t(("View Details", "विवरण देखें")) }}</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ heading(("Popular Braj Darshan Destinations", "लोकप्रिय ब्रज दर्शन स्थल")) }}
+    <div class="row g-4">{% for d in dests %}{{ dest_card(d) }}{% endfor %}</div>
+    <div class="text-center mt-4"><a class="btn btn-navy" href="/braj-darshan">{{ t(("Braj Darshan Details", "ब्रज दर्शन विवरण")) }}</a></div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    {{ heading(("Our Fleet", "हमारे वाहन")) }}
+    <div class="row g-4 justify-content-center">
+      {% for v in vehicles %}
+      <div class="col-md-5 reveal"><article class="card-x h-100">
+        {{ photo('vehicles', v, en(v.name)) }}
+        <div class="p-3 text-center"><h3>{{ t(v.name) }}</h3><p>{{ t(v.use) }}</p></div>
+      </article></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ heading(("Why Choose Faujii Tour & Travels?", "फौजी टूर एंड ट्रैवल्स ही क्यों?")) }}
+    <div class="row g-4">
+      {% for icon, title, text in why %}
+      <div class="col-md-6 col-lg-3 reveal"><div class="why">
+        <i class="fa-solid {{ icon }}"></i><h3>{{ t(title) }}</h3><p>{{ t(text) }}</p>
+      </div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    {{ heading(("Popular Travel Routes", "लोकप्रिय यात्रा मार्ग")) }}
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      {% for r in routes %}<span class="chip">{{ t(r) }}</span>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ heading(("Frequently Asked Questions", "अक्सर पूछे जाने वाले प्रश्न")) }}
+    <div class="accordion mx-auto narrow" id="faq">
+      {% for f in faqs %}{% set q = f.q %}{% set a = f.a %}
+      <div class="accordion-item">
+        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f{{ loop.index }}">{{ t(q) }}</button></h3>
+        <div id="f{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">{{ t(a) }}</div></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container text-center">
+    <h2>{{ t(("Plan your journey today", "आज ही अपनी यात्रा तय करें")) }}</h2>
+    <p>{{ t(("Call or WhatsApp us. No forms, no registration.", "कॉल या WhatsApp करें। कोई फ़ॉर्म नहीं, कोई रजिस्ट्रेशन नहीं।")) }}</p>
+    {{ cta() }}
+  </div>
+</section>
+{% endblock %}

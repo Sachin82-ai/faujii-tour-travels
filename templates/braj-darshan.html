@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% from "_macros.html" import cta, heading, page_hero, dest_card with context %}
+{% block content %}
+{{ page_hero(("Braj Darshan", "ब्रज दर्शन"), ("The land of Krishna, Radha and the Braj leelas", "कृष्ण, राधा और ब्रज लीलाओं की भूमि")) }}
+{% for name, ds, extras in groups %}
+<section class="section {{ 'alt' if loop.index is even }}"><div class="container">
+  {{ heading(name) }}
+  <div class="row g-4 justify-content-center">{% for d in ds %}{{ dest_card(d) }}{% endfor %}</div>
+  {% if extras %}
+  <p class="text-center mt-4 mb-2 fw-semibold">{{ t(("Also covered in this group:", "इस समूह में यह भी शामिल:")) }}</p>
+  <div class="d-flex flex-wrap justify-content-center gap-2">{% for e in extras %}<span class="chip">{{ t(e) }}</span>{% endfor %}</div>
+  {% endif %}
+</div></section>
+{% endfor %}
+<section class="section"><div class="container">
+  {{ heading(("Other Popular Temples", "अन्य लोकप्रिय मंदिर"), ("Can be added to your tour, subject to the actual itinerary.", "यात्रा कार्यक्रम के अनुसार जोड़े जा सकते हैं।")) }}
+  <div class="d-flex flex-wrap justify-content-center gap-2">{% for e in extra %}<span class="chip">{{ t(e) }}</span>{% endfor %}</div>
+</div></section>
+<section class="section alt"><div class="container narrow mx-auto">
+  {{ heading(("Sample Itinerary", "नमूना कार्यक्रम"), ("Final route and timings are confirmed with you before the trip.", "यात्रा से पहले मार्ग और समय आपसे तय किया जाता है।")) }}
+  <ol class="timeline">
+    <li>{{ t(("Pick-up from your stay in Mathura / Vrindavan", "मथुरा / वृंदावन में आपके ठिकाने से पिकअप")) }}</li>
+    <li>{{ t(("Group 1: Govardhan, Barsana and Nandgaon darshan", "समूह 1: गोवर्धन, बरसाना और नंदगाँव दर्शन")) }}</li>
+    <li>{{ t(("Group 2: Gokul, Raman Reti, Brahmand Ghat, Chaurasi Khamba, Janmasthan", "समूह 2: गोकुल, रमण रेती, ब्रह्मांड घाट, चौरासी खंभा, जन्मस्थान")) }}</li>
+    <li>{{ t(("Drop-back at your stay", "वापस आपके ठिकाने पर ड्रॉप")) }}</li>
+  </ol>
+</div></section>
+<section class="cta-band"><div class="container text-center"><h2>{{ t(("Book your Braj Darshan", "अपना ब्रज दर्शन तय करें")) }}</h2>{{ cta('Hello, I want to enquire about Braj Darshan.') }}</div></section>
+{% endblock %}
